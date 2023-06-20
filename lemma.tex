@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage[a0paper, landscape, margin=5mm]{geometry}
+\usepackage[paperwidth=150cm,paperheight=30cm, margin=5mm]{geometry}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -65,7 +65,7 @@ $$
              {\Gamma, m\!:\!\N, n\!:\!\N, a : \s(m)\!+\!n = \s(m\!+\!n) \d \s(m\!+\!n) \equiv m\!+\!\s(n) : \N}W
            \\ \inferrule
              {\inferrule
-               {\inferrule{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m) + \s(n) \equiv \s(\s(m) + n) : \N}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(\s(m) + n) \equiv \s(m) + \s(n) : \N}}
+               {\inferrule{\inferrule{\inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma, m\!:\!\N \vdash \s(m) : \N}\textup{ev}}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m) : \N}W \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m) + \s(n) \equiv \s(\s(m) + n) : \N}}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(\s(m) + n) \equiv \s(m) + \s(n) : \N}}
                {\Gamma, m\!:\!\N, n\!:\!\N, a : \s(m)\!+\!n = \s(m\!+\!n) \d \s(\s(m) + n) \equiv \s(m) + \s(n) : \N}W
              \\ \inferrule
                {\inferrule {\inferrule
@@ -76,7 +76,13 @@ $$
         \inferrule
           {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}
           {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}
-          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (\s(m)\!+\!n)\!: \N} \\ \inferrule {\inferrule{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (m\!+\!n)\!: \N}{\Gamma, m\!:\!\N, n\!:\!\N \vdash \s(m\!+\!n)\!: \N} \\ \inferrule {\inferrule {\inferrule
+          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (\s(m)\!+\!n)\!: \N} \\ \inferrule {\inferrule{\inferrule{\inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}
+          W \\ \inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash m\!:\!\N}\delta}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d m\!:\!\N}
+          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (m\!+\!n) : \N}}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m\!+\!n) : \N} \\ \inferrule {\inferrule {\inferrule
                  {\inferrule{\inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, m\!:\!\N \d \s : \N \r \N}\,W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s : \N \r \N}\,W}
                  {\Gamma, m\!:\!\N, n\!:\!\N \d \apply_{\s} : \Pi_{(x:\N)} \Pi_{(y:\N)} (x\!=\!y \rightarrow \s(x)\!=\!\s(y))}}
                  {\Gamma, m\!:\!\N, n\!:\!\N,\, x\!:\!\N \d \apply_{\s}(x) : \Pi_{(y:\N)} (x\!=\!y \rightarrow \s(x)\!=\!\s(y))}\textup{ev}}

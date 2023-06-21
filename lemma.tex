@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage[paperwidth=160cm,paperheight=20cm, margin=5mm]{geometry}
+\usepackage[paperwidth=180cm,paperheight=20cm, margin=5mm]{geometry}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -69,7 +69,16 @@ $$
           W \\ \inferrule
           {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma, n\!:\!\N \vdash \s(n) : \N}\textup{ev}}
           {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(n) : \N}
-          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (\s(m)\!+\!\s(n)) : \N} \\ \inferrule{TODO}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m\!+\!\s(n)) : \N}}
+          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (\s(m)\!+\!\s(n)) : \N} \\ \inferrule{\inferrule
+        {\inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, m\!:\!\N \vdash m\!:\!\N}\delta}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d m\!:\!\N}
+          W \\
+        \inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma, n\!:\!\N \vdash \s(n) : \N}\textup{ev}}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(n) : \N}
+          W}
+        {\Gamma,\, m : \N,\, n : \N \d (m + \s(n)) : \N} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, r\!:\!\N \d \s(r) : \N}\,\textup{ev}}{\Gamma,\, n\!:\!\N,\, r\!:\!\N \d \s(r) : \N}W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N,\, r\!:\!\N \d \s(r) : \N}W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m\!+\!\s(n)) : \N}S}
            {\Gamma,\, m : \N,\, n : \N \d (\s(m) + \s(n) = \s(m+\s(n))) \type}
          \\ \inferrule
            {\inferrule

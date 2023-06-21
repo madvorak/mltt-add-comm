@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage[paperwidth=150cm,paperheight=30cm, margin=5mm]{geometry}
+\usepackage[paperwidth=160cm,paperheight=20cm, margin=5mm]{geometry}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -42,12 +42,18 @@ $$
         {\Gamma,\, m : \N,\, n : \N \d (\s(m) + n) : \N}
         \\
       \inferrule
-        {\inferrule{TODO~m \\ TODO~n}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (m+n) : \N}}
+        {\inferrule{\inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, m\!:\!\N \vdash m\!:\!\N}\delta}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d m\!:\!\N}
+          W \\ \inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}
+          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (m+n) : \N} \\ TODO }
         {\Gamma, m\!:\!\N, n\!:\!\N \vdash \s(m\!+\!n) : \N}
       }
       {\Gamma,\, m : \N,\, n : \N \d (\s(m) + n = \s(m+n)) \type} \\
     \inferrule
-      {\inferrule{\inferrule{TODO'~m}{\Gamma, m\!:\!\N \d m\!+\!\.0 \equiv m : \N}}{\Gamma, m\!:\!\N \d m \equiv m\!+\!\.0 : \N} \\ 
+      {\inferrule{\inferrule{\inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, m\!:\!\N \vdash m\!:\!\N}\delta}{\Gamma, m\!:\!\N \d m\!+\!\.0 \equiv m : \N}}{\Gamma, m\!:\!\N \d m \equiv m\!+\!\.0 : \N} \\ 
 	{\inferrule
         {\inferrule{\inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, m\!:\!\N \d \s(m) : \N}\,\textup{ev}}{\Gamma, m\!:\!\N \d \s(m) \equiv \s(m)\!+\!\.0 : \N} \\ \inferrule{\inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, m\!:\!\N \d \s(m):\N}\,\textup{ev}}{\Gamma, m\!:\!\N \d \refl_{\s(m)}\!: \s(m) = \s(m)}}
         {\Gamma,\, m : \N \d \refl_{\s(m)} : \s(m) + 0 = \s(m)}
@@ -57,11 +63,23 @@ $$
     \inferrule {\inferrule
       {\inferrule
         {\inferrule
-           {\inferrule{TODO~\s(m) \\ TODO~\s(n)}{\Gamma, m\!:\!\N, n\!:\!\N \vdash (\s(m)\!+\!\s(n))\!: \N} \\ \inferrule{TODO}{\Gamma, m\!:\!\N, n\!:\!\N \vdash \s(m\!+\!\s(n))\.\!: \N}}
+           {\inferrule{\inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma, m\!:\!\N \vdash \s(m) : \N}\textup{ev}}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m) : \N}
+          W \\ \inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma, n\!:\!\N \vdash \s(n) : \N}\textup{ev}}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(n) : \N}
+          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (\s(m)\!+\!\s(n)) : \N} \\ \inferrule{TODO}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m\!+\!\s(n)) : \N}}
            {\Gamma,\, m : \N,\, n : \N \d (\s(m) + \s(n) = \s(m+\s(n))) \type}
          \\ \inferrule
            {\inferrule
-             {\inferrule{\inferrule{TODO~m \\ TODO~n}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d m+\s(n) \equiv \s(m\!+\!n) : \N}}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m\!+\!n) \equiv m+\s(n) : \N}}
+             {\inferrule{\inferrule{\inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, m\!:\!\N \vdash m\!:\!\N}\delta}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d m\!:\!\N}
+          W \\ \inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}
+          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d m+\s(n) \equiv \s(m\!+\!n) : \N}}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m\!+\!n) \equiv m+\s(n) : \N}}
              {\Gamma, m\!:\!\N, n\!:\!\N, a : \s(m)\!+\!n = \s(m\!+\!n) \d \s(m\!+\!n) \equiv m\!+\!\s(n) : \N}W
            \\ \inferrule
              {\inferrule
@@ -77,12 +95,12 @@ $$
           {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}
           {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}
           W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (\s(m)\!+\!n)\!: \N} \\ \inferrule {\inferrule{\inferrule{\inferrule
+          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, m\!:\!\N \vdash m\!:\!\N}\delta}
+          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d m\!:\!\N}
+          W \\ \inferrule
           {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}
           {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}
-          W \\ \inferrule
-          {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash m\!:\!\N}\delta}
-          {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d m\!:\!\N}
-          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (m\!+\!n) : \N}}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m\!+\!n) : \N} \\ \inferrule {\inferrule {\inferrule
+          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (m\!+\!n) : \N} \\ TODO}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m\!+\!n) : \N} \\ \inferrule {\inferrule {\inferrule
                  {\inferrule{\inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, m\!:\!\N \d \s : \N \r \N}\,W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s : \N \r \N}\,W}
                  {\Gamma, m\!:\!\N, n\!:\!\N \d \apply_{\s} : \Pi_{(x:\N)} \Pi_{(y:\N)} (x\!=\!y \rightarrow \s(x)\!=\!\s(y))}}
                  {\Gamma, m\!:\!\N, n\!:\!\N,\, x\!:\!\N \d \apply_{\s}(x) : \Pi_{(y:\N)} (x\!=\!y \rightarrow \s(x)\!=\!\s(y))}\textup{ev}}

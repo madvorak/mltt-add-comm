@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage[paperwidth=180cm,paperheight=20cm, margin=5mm]{geometry}
+\usepackage[paperwidth=240cm,paperheight=20cm, margin=5mm]{geometry}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -48,18 +48,18 @@ $$
           W \\ \inferrule
           {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}
           {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}
-          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (m+n) : \N} \\ TODO }
-        {\Gamma, m\!:\!\N, n\!:\!\N \vdash \s(m\!+\!n) : \N}
+          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (m+n) : \N} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, r\!:\!\N \d \s(r) : \N}\,\textup{ev}}{\Gamma,\, n\!:\!\N,\, r\!:\!\N \d \s(r) : \N}W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N,\, r\!:\!\N \d \s(r) : \N}W}
+        {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m + n) : \N}S
       }
       {\Gamma,\, m : \N,\, n : \N \d (\s(m) + n = \s(m+n)) \type} \\
     \inferrule
       {\inferrule{\inferrule{\inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, m\!:\!\N \vdash m\!:\!\N}\delta}{\Gamma, m\!:\!\N \d m\!+\!\.0 \equiv m : \N}}{\Gamma, m\!:\!\N \d m \equiv m\!+\!\.0 : \N} \\ 
 	{\inferrule
         {\inferrule{\inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, m\!:\!\N \d \s(m) : \N}\,\textup{ev}}{\Gamma, m\!:\!\N \d \s(m) \equiv \s(m)\!+\!\.0 : \N} \\ \inferrule{\inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, m\!:\!\N \d \s(m):\N}\,\textup{ev}}{\Gamma, m\!:\!\N \d \refl_{\s(m)}\!: \s(m) = \s(m)}}
-        {\Gamma,\, m : \N \d \refl_{\s(m)} : \s(m) + 0 = \s(m)}
+        {\Gamma,\, m : \N \d \refl_{\s(m)} : \s(m) + 0 = \s(m)}TODO
       }
       }
-      {\Gamma,\, m : \N \d \refl_{\s(m)} : \s(m) + 0 = \s(m+0)} \\
+      {\Gamma,\, m : \N \d \refl_{\s(m)} : \s(m) + 0 = \s(m+0)}TODO \\
     \inferrule {\inferrule
       {\inferrule
         {\inferrule
@@ -89,11 +89,11 @@ $$
           {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}
           {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}
           W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d m+\s(n) \equiv \s(m\!+\!n) : \N}}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m\!+\!n) \equiv m+\s(n) : \N}}
-             {\Gamma, m\!:\!\N, n\!:\!\N, a : \s(m)\!+\!n = \s(m\!+\!n) \d \s(m\!+\!n) \equiv m\!+\!\s(n) : \N}W
+             {\Gamma,\, m\!:\!\N,\, n\!:\!\N,\, a : \s(m)\!+\!n = \s(m\!+\!n) \d \s(m\!+\!n) \equiv m\!+\!\s(n) : \N}W~TODO
            \\ \inferrule
              {\inferrule
                {\inferrule{\inferrule{\inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma, m\!:\!\N \vdash \s(m) : \N}\textup{ev}}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m) : \N}W \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m) + \s(n) \equiv \s(\s(m) + n) : \N}}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(\s(m) + n) \equiv \s(m) + \s(n) : \N}}
-               {\Gamma, m\!:\!\N, n\!:\!\N, a : \s(m)\!+\!n = \s(m\!+\!n) \d \s(\s(m) + n) \equiv \s(m) + \s(n) : \N}W
+               {\Gamma,\, m\!:\!\N,\, n\!:\!\N,\, a : \s(m)\!+\!n = \s(m\!+\!n) \d \s(\s(m) + n) \equiv \s(m) + \s(n) : \N}W~TODO
              \\ \inferrule
                {\inferrule {\inferrule
         {\inferrule
@@ -103,14 +103,16 @@ $$
         \inferrule
           {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}
           {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}
-          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (\s(m)\!+\!n)\!: \N} \\ \inferrule {\inferrule{\inferrule{\inferrule
+          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (\s(m)\!+\!n)\!: \N} \\ \inferrule {\inferrule
+        {\inferrule{\inferrule
           {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, m\!:\!\N \vdash m\!:\!\N}\delta}
           {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d m\!:\!\N}
           W \\ \inferrule
           {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type}}{\Gamma, n\!:\!\N \vdash n\!:\!\N}\delta}
           {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d n\!:\!\N}
-          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (m\!+\!n) : \N} \\ TODO}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m\!+\!n) : \N} \\ \inferrule {\inferrule {\inferrule
-                 {\inferrule{\inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, m\!:\!\N \d \s : \N \r \N}\,W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s : \N \r \N}\,W}
+          W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d (m+n) : \N} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, r\!:\!\N \d \s(r) : \N}\,\textup{ev}}{\Gamma,\, n\!:\!\N,\, r\!:\!\N \d \s(r) : \N}W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N,\, r\!:\!\N \d \s(r) : \N}W}
+        {\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s(m + n) : \N}S \\ \inferrule {\inferrule {\inferrule
+                 {\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \vdash \N \type} \\ \inferrule{\inferrule{~}{\Gamma \d \s : \N \r \N}}{\Gamma,\, m\!:\!\N \d \s : \N \r \N}\,W}{\Gamma,\, m\!:\!\N,\, n\!:\!\N \d \s : \N \r \N}W}
                  {\Gamma, m\!:\!\N, n\!:\!\N \d \apply_{\s} : \Pi_{(x:\N)} \Pi_{(y:\N)} (x\!=\!y \rightarrow \s(x)\!=\!\s(y))}}
                  {\Gamma, m\!:\!\N, n\!:\!\N,\, x\!:\!\N \d \apply_{\s}(x) : \Pi_{(y:\N)} (x\!=\!y \rightarrow \s(x)\!=\!\s(y))}\textup{ev}}
                  {\Gamma, m\!:\!\N, n\!:\!\N,\, x\!:\!\N,\, y\!:\!\N \d \apply_{\s}(x, y) : x\!=\!y \rightarrow \s(x)\!=\!\s(y)}\textup{ev}}
@@ -122,7 +124,7 @@ $$
            {\Gamma,\, m : \N,\, n : \N,\, a : \s(m) + n = \s(m+n) \;\d\; \apply_{\s}(\s(m)\!+\!n, \s(m\!+\!n))(a) \::\: \s(m) + \s(n) = \s(m+\s(n))}TODO
         }
         {\Gamma,\, m : \N,\, n : \N \;\d\; \lambda a\,.\.\apply_{\s}(\s(m)\!+\!n, \s(m\!+\!n))(a) \::\: \s(m) + n = \s(m+n) \rightarrow \s(m) + \s(n) = \s(m+\s(n))}\lambda
-      }{\Gamma,\, m : \N,\, n : \N \;\d\; \apply_{\s}(\s(m)\!+\!n, \s(m\!+\!n)) \::\: \s(m) + n = \s(m+n) \rightarrow \s(m) + \s(n) = \s(m+\s(n))}\eta}
+      }{\Gamma,\, m : \N,\, n : \N \;\d\; \apply_{\s}(\s(m)\!+\!n, \s(m\!+\!n)) \::\: \s(m) + n = \s(m+n) \rightarrow \s(m) + \s(n) = \s(m+\s(n))}\eta~TODO}
       {\Gamma,\, m : \N \;\d\; \lambda n \.. \apply_{\s}(\s(m)\!+\!n, \s(m\!+\!n)) \::\: \Pi_{(n:\N)} \left( \s(m) + n = \s(m+n) \rightarrow \s(m) + \s(n) = \s(m+\s(n)) \right)}
       \lambda
     }
